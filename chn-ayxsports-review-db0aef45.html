@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏体育 · 轻量导航介绍页</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', Helvetica, Arial, sans-serif;
+            background: linear-gradient(145deg, #fde9d2 0%, #fbd0a0 55%, #f1b77e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem;
+            line-height: 1.6;
+            color: #2a241f;
+        }
+        .page {
+            max-width: 1024px;
+            width: 100%;
+            background: rgba(255, 251, 245, 0.65);
+            backdrop-filter: blur(2px);
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 20px 40px -12px rgba(120, 70, 30, 0.25);
+            padding: 2rem 2rem 3rem;
+        }
+        /* 顶部导航 */
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(180, 120, 70, 0.25);
+            margin-bottom: 2.8rem;
+        }
+        .logo-area {
+            font-weight: 600;
+            font-size: 1.6rem;
+            letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 0.2rem 1rem 0.2rem 1.2rem;
+            border-radius: 60px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            color: #6b3f1f;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4d3221;
+            font-weight: 500;
+            padding: 0.3rem 0.2rem;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #b6723a;
+            color: #6b3f1f;
+        }
+        /* hero */
+        .hero-wrap {
+            background: #fffcf7;
+            border-radius: 40px;
+            padding: 2.4rem 2rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 6px 12px rgba(110, 60, 22, 0.08);
+        }
+        .hero-wrap h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #452e1d;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.3px;
+        }
+        .hero-wrap p {
+            font-size: 1.1rem;
+            max-width: 680px;
+            color: #4a372a;
+        }
+        .hero-wrap p a {
+            color: #9c5f2c;
+            text-decoration: none;
+            font-weight: 550;
+            border-bottom: 2px solid #eac7a8;
+            padding-bottom: 1px;
+            transition: 0.2s;
+        }
+        .hero-wrap p a:hover {
+            background: #f6e5d2;
+            border-bottom-color: #b06d34;
+        }
+        /* 三个场景卡片 */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.6rem;
+            margin-bottom: 2.8rem;
+        }
+        .scene-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 8px 18px rgba(90, 50, 20, 0.08);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(245, 200, 155, 0.4);
+        }
+        .scene-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 28px -8px rgba(120, 70, 30, 0.18);
+            border-color: #dbaa7a;
+        }
+        .scene-card h3 {
+            font-size: 1.3rem;
+            font-weight: 550;
+            color: #4f311b;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .scene-card h3 span {
+            background: #f7e2cd;
+            border-radius: 40px;
+            padding: 0.1rem 0.7rem;
+            font-size: 0.85rem;
+            color: #653f21;
+        }
+        .scene-card p {
+            color: #3d2e21;
+            font-size: 0.98rem;
+            margin-bottom: 1rem;
+        }
+        .scene-tag {
+            display: inline-block;
+            background: #efe0cf;
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            font-size: 0.8rem;
+            color: #3f2b1b;
+            margin-right: 0.4rem;
+            margin-bottom: 0.3rem;
+        }
+        .scene-link {
+            display: inline-block;
+            background: #f8ede1;
+            border-radius: 40px;
+            padding: 0.4rem 1.2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #6b3f1f;
+            text-decoration: none;
+            border: 1px solid #e1c2a4;
+            transition: 0.15s;
+            margin-top: 0.6rem;
+        }
+        .scene-link:hover {
+            background: #dbb188;
+            color: #2a1b10;
+            border-color: #b67c4a;
+        }
+        /* 常见说明区块 */
+        .faq-section {
+            background: #fcf7f0;
+            border-radius: 32px;
+            padding: 2rem 2rem 2.2rem;
+            margin-top: 1.2rem;
+        }
+        .faq-section h2 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: #3e2a1b;
+            margin-bottom: 1.4rem;
+            letter-spacing: -0.2px;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e9d6c3;
+            padding: 0.9rem 0;
+        }
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 550;
+            color: #4d3321;
+            font-size: 1.05rem;
+            margin-bottom: 0.2rem;
+        }
+        .faq-a {
+            color: #4a372a;
+            padding-left: 0.2rem;
+            font-size: 0.96rem;
+        }
+        .faq-a a {
+            color: #9c5f2c;
+            text-decoration: none;
+            border-bottom: 1px solid #e1b48a;
+            font-weight: 500;
+        }
+        .faq-a a:hover {
+            background: #f5e3d1;
+        }
+        .footnote {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #594333;
+            padding: 0.8rem 0 0.2rem;
+            border-top: 1px solid #e3cfbb;
+        }
+        .footnote a {
+            color: #7a502b;
+            text-decoration: none;
+            border-bottom: 1px solid #d4ad87;
+        }
+        /* 响应式 */
+        @media (max-width: 780px) {
+            .page { padding: 1.4rem; }
+            .top-nav { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .hero-wrap h1 { font-size: 1.8rem; }
+            .scene-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 540px) {
+            body { padding: 1rem 0.6rem; }
+            .page { border-radius: 28px; padding: 1.2rem; }
+            .hero-wrap { padding: 1.6rem 1.2rem; }
+            .scene-grid { grid-template-columns: 1fr; }
+            .nav-links { gap: 1rem; }
+            .faq-section { padding: 1.6rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 顶部导航 -->
+    <header class="top-nav">
+        <div class="logo-area">⚡ 爱·体·游</div>
+        <div class="nav-links">
+            <a href="#">了解</a>
+            <a href="#">场景</a>
+            <a href="#">说明</a>
+        </div>
+    </header>
+
+    <!-- 核心介绍 (hero) -->
+    <div class="hero-wrap">
+        <h1>关于平台 · 爱游戏体育</h1>
+        <p>
+            <a href="https://chn-ayxsports.com">爱游戏体育</a> 是一个围绕运动内容与休闲互动的信息站点，聚合了赛事资讯、趣味运动记录以及轻量社区交流。这里没有浮夸的口号，只有实在的分享：从日常锻炼的实用技巧，到不同运动项目的背景介绍，再到爱好者之间的经验交换。如果你正在寻找一个踏实、不花哨的运动内容角落，或许可以来这边看一看。
+        </p>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scene-grid">
+        <div class="scene-card">
+            <h3>🏃 日常运动 <span>场景 01</span></h3>
+            <p>跑步、骑行、健身——基础运动怎么做更有效？整理了一些动作要点、恢复建议和装备参考，适合刚开始或想调整习惯的人。</p>
+            <span class="scene-tag">动作拆解</span>
+            <span class="scene-tag">恢复贴士</span>
+            <div><a href="https://chn-ayxsports.com" class="scene-link">爱游戏体育</a></div>
+        </div>
+        <div class="scene-card">
+            <h3>⚽ 球类 & 对抗 <span>场景 02</span></h3>
+            <p>足球、篮球、羽毛球、乒乓球…… 各项目规则简述、训练思路和业余比赛资讯。不鼓吹天赋，只聊实在的入门和进阶思路。</p>
+            <span class="scene-tag">规则简读</span>
+            <span class="scene-tag">训练节奏</span>
+            <div><a href="https://chn-ayxsports.com" class="scene-link">爱游戏体育</a></div>
+        </div>
+        <div class="scene-card">
+            <h3>🧘 放松 & 恢复 <span>场景 03</span></h3>
+            <p>运动后的拉伸、冥想、泡沫轴放松，以及低强度活动推荐。帮助身体回到平衡状态，减少疲劳积累。</p>
+            <span class="scene-tag">拉伸流程</span>
+            <span class="scene-tag">主动恢复</span>
+            <div><a href="https://chn-ayxsports.com" class="scene-link">爱游戏体育</a></div>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要 -->
+    <div class="faq-section">
+        <h2>一些常见说明</h2>
+        <div class="faq-item">
+            <div class="faq-q">📌 平台内容偏向什么方向？</div>
+            <div class="faq-a">资讯和分享以实用性为主，不侧重极端训练或竞技数据，更适合业余爱好者及普通运动人群。你可以通过 <a href="https://chn-ayxsports.com">爱游戏体育</a> 浏览不同板块。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">📌 信息更新频率如何？</div>
+            <div class="faq-a">保持每周都有新增内容，包括运动技巧、项目科普以及用户投稿摘录。不追求日更数量，但尽量保证每篇都有参考价值。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">📌 是否开放用户互动或投稿？</div>
+            <div class="faq-a">目前主要通过站内留言区进行交流，未来会逐步开放更系统的分享入口。如果你有想要补充的内容，欢迎在对应文章下留言。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">📌 移动端浏览体验如何？</div>
+            <div class="faq-a">页面适配手机和平板，所有卡片及导航均采用响应式设计，阅读和操作都比较方便。建议使用自带浏览器或主流的第三方浏览器访问 <a href="https://chn-ayxsports.com">爱游戏体育</a>。</div>
+        </div>
+        <div class="footnote">
+            —— 信息整理自开放内容 · 页面仅作导航介绍 ——<br>
+            <span style="font-size:0.85rem; opacity:0.8;">更多细节请直接访问 <a href="https://chn-ayxsports.com">爱游戏体育</a></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
